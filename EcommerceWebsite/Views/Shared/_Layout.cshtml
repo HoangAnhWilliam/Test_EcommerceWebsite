@@ -1,0 +1,194 @@
+﻿@using EcommerceWebsite.Models.Home
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/AboutCss.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MyMainLayOut.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            @*<div class="col-md-6 col-sm-6 col-xl-6">
+            <div class="logo">
+                <h1><a href="#">Online<span>Shopping Store</span></a></h1>
+                <p>My Shop</p>
+                <div>
+                    <div class="menus">
+                        <table>
+                            <tr>
+                                <td><button type="button" class="btn btn-outline-dark" href="#">Home</button></td>
+                                <td><button type="button" class="btn btn-outline-dark" href="#">Location</button></td>
+                                <td><button type="button" class="btn btn-outline-dark" href="#">About Us</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xl-6">
+            <div class="account">
+                <ul>
+                    <li>
+                        <div class="hidden-xs">
+                            <h4><a>Call</a></h4>
+                            <p>09#####-######</p>
+                        </div>
+
+                        <div class="visible-xs">
+
+                            <p>09#####-######</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">ULearn</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="../Home/Index">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Home/About">Về Chúng Tôi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown link
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink" aria-expanded="false" role="button">Cart<b class="caret"></b></a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                @if (Session["cart"] != null && ((List<Item>)Session["cart"]).Count > 0)
+                                {
+                                    foreach (var item in (List<Item>)Session["cart"])
+                                    {
+                                        <li><a class="dropdown-item" href="@Url.Action("RemoveFromCart","Home", new {productId = item.product.ProductId})">@item.product.ProductName (@item.quantity)
+                                                <i>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li><a class="dropdown-item" href="#">Cart is empty</a></li>
+                                }
+                                <li><a class="dropdown-item" href="../Home/CheckOutDetails/">Kiểm tra</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+
+            <div>
+
+                @*<div class="row">
+                <div class="col-md-12">
+                    <div class="nav-menus">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a style ="border-radius:initial;" href="#">Home</a></li>
+                            <li><a style ="border-radius:initial;" href="#">Location</a></li>
+                            <li><a style ="border-radius:initial;" href="#">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+
+                <div>
+
+                </div>
+
+                @RenderBody()
+                <hr />
+                <footer>
+                    <div>
+                        <div class="foot first">
+                            <img src="" alt="" class="logo" />
+                            <h5>
+                                Chào mừng đến với trang ULearn của chúng tôi!
+                                Hãy truy cập vào trang web của chúng tôi ngay hôm nay để khám phá và đăng ký tham gia các khóa học hấp dẫn.
+                                Cùng với chất lượng đào tạo, chúng tôi cam kết mang đến trải nghiệm tốt nhất cho người dùng Việt Nam với sự phục vụ chuyên nghiệp và tận tâm từ đội ngũ chúng tôi.
+                            </h5>
+                            <img src="https://shopdunk.com/Themes/SD/Content/images/Face.png" alt="Facebook" />
+                            <img src="https://shopdunk.com/Themes/SD/Content/images/Youtube.png" alt="Youtube" />
+
+                        </div>
+                        <div class="foot">
+                            <h5>Thông tin</h5>
+                            <a href="#">Tin tức</a><br />
+                            <a href="#">Giới thiệu</a><br />
+                            <a href="#">Phương thức thanh toán</a><br />
+                            <a href="#">Thuê điểm bán lẻ</a><br />
+                            <a href="#">Bảo hành và sửa chữa</a><br />
+                            <a href="#">Tuyển dụng</a><br />
+                            <a href="#">Đánh giá chất lượng, khiếu nại</a>
+                        </div>
+                        <div class="foot">
+                            <h5>Chính sách</h5>
+                            <a href="#">Dịch vụ</a><br />
+                            <a href="#">Giải quyết khiếu nại</a><br />
+                            <a href="#">Bảo mật thông tin</a><br />
+                            <a href="#">Hướng dẫn thanh toán qua VNPAY</a>
+                        </div>
+                        <div class="foot last">
+                            <h5>Địa chỉ & Liên hệ</h5>
+                            <a href="#">Tài khoản của tôi</a><br />
+                            <a href="#">Đơn đặt hàng</a><br />
+                            <a href="#">Hệ thống cửa hàng</a>
+                            <p>Tìm Store trên Google Map</p>
+                            <p>Mua hàng: <span style="font-size: 1.2rem; color: #0000FF;">1900.6626</span></p>
+                            <ul>
+                                <li>Nhánh 1: khu vực Hà Nội và các tỉnh phía bắc</li>
+                                <li>Nhánh 2: khu vực Hồ Chí Minh và các tỉnh phía nam</li>
+                                <li>Nhánh 3: Khiếu nại và góp ý</li>
+                            </ul>
+                            <p>Doanh nghiệp: <span style="color: #0000FF;">0822.688.668</span></p>
+                        </div>
+                    </div>
+                    <div id="footer_end">
+                        <small style="font-size: 0.9rem; line-height: 1.3rem;">
+
+                            Địa chỉ: 828 Sư Vạn Hạnh, Phường 13, Quận 10, Thành phố Hồ Chí Minh, Việt Nam<br />
+                            | ĐT: 0247.305.9999 | Email: Ulearn@gmail.com | &copy; @DateTime.Now.Year Ulearn
+
+                        </small>
+
+                    </div>
+                </footer>
+            </div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+</body>
+</html>
