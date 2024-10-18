@@ -1,0 +1,276 @@
+﻿@using EcommerceWebsite.Models.Home
+@{
+    ViewBag.Title = "RegisterClass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function validateForm() {
+            var fname = document.forms["form1"]["fname"].value;
+            var user = document.forms["form1"]["user"].value;
+            var email = document.forms["form1"]["email"].value;
+            var gioitinh = document.forms["form1"]["gioitinh"].value;
+            var ngay = document.forms["form1"]["day"].value;
+            var thang = document.forms["form1"]["thang"].value;
+            var nam = document.forms["form1"]["Nam"].value;
+            var nganh = document.forms["form1"]["nganh"].value;
+            var thanhpho = document.forms["form1"]["thanhpho"].value;
+            var chinhanh = document.forms["form1"]["chinhanh"].value;
+
+            if (fname == "" || user == "" || email == "" || gioitinh === null || ngay === null || thang === null || nam === null || nganh === null || thanhpho === null || chinhanh === null) {
+                alert("Vui lòng điền đầy đủ thông tin bắt buộc.");
+                return false;
+            } else {
+                // Ẩn biểu mẫu
+                document.getElementById("form1").style.display = "none";
+                // Hiển thị thông báo thành công
+                document.getElementById("successMessage").style.display = "block";
+            }
+            alert("Đăng ký thành công!");
+            return true;
+
+        }
+    </script>
+</head>
+<style>
+    body {
+        background-image: url(https://unihub.vnu.edu.vn/wp-content/uploads/2021/12/dao-tao-tu-xa-1-1170x730.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+    </head>
+</html>
+<body style="margin-top: 50px;">
+    <form id="form1" runat="server" onsubmit="return validateForm()">
+        <div>
+            <table width="600" border="12" cellpadding="19" align="center">
+                <tr>
+                    <th colspan="2">ĐĂNG KÝ</th>
+                </tr>
+                <tr>
+                    <td>Họ và tên</td>
+                    <td>
+                        <input type="text" name="fname" size="40" placeholder="Nhập Tên" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>
+                        <input type="text" name="user" size="40" placeholder="Nhập số điện thoại" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="text" name="email" size="40" placeholder="Nhập Email" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>
+                        <label>
+                            <input type="radio" name="gioitinh" id="nam"> Nam
+                        </label>
+                        <label>
+                            <input type="radio" name="gioitinh" id="nu"> Nữ
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngày Sinh</td>
+                    <td>
+                        <select name="day">
+                            <option value="ngay1">Ngày 1</option>
+                            <option value="ngay1">Ngày 1</option>
+                            <option value="ngay2">Ngày 2</option>
+                            <option value="ngay3">Ngày 3</option>
+                            <option value="ngay4">Ngày 4</option>
+                            <option value="ngay5">Ngày 5</option>
+                            <option value="ngay6">Ngày 6</option>
+                            <option value="ngay7">Ngày 7</option>
+                            <option value="ngay8">Ngày 8</option>
+                            <option value="ngay9">Ngày 9</option>
+                            <option value="ngay10">Ngày 10</option>
+                            <option value="ngay11">Ngày 11</option>
+                            <option value="ngay12">Ngày 12</option>
+                            <option value="ngay13">Ngày 13</option>
+                            <option value="ngay14">Ngày 14</option>
+                            <option value="ngay15">Ngày 15</option>
+                            <option value="ngay16">Ngày 16</option>
+                            <option value="ngay17">Ngày 17</option>
+                            <option value="ngay18">Ngày 18</option>
+                            <option value="ngay19">Ngày 19</option>
+                            <option value="ngay20">Ngày 20</option>
+                            <option value="ngay21">Ngày 21</option>
+                            <option value="ngay22">Ngày 22</option>
+                            <option value="ngay23">Ngày 23</option>
+                            <option value="ngay24">Ngày 24</option>
+                            <option value="ngay25">Ngày 25</option>
+                            <option value="ngay26">Ngày 26</option>
+                            <option value="ngay27">Ngày 27</option>
+                            <option value="ngay28">Ngày 28</option>
+                            <option value="ngay29">Ngày 29</option>
+                            <option value="ngay30">Ngày 30</option>
+                            <option value="ngay31">Ngày 31</option>
+                        </select>
+                        <select name="thang">
+                            <option value="-----">-----</option>
+                            <option value="thang1">Tháng 1</option>
+                            <option value="thang1">Tháng 2</option>
+                            <option value="thang1">Tháng 3</option>
+                            <option value="thang1">Tháng 4</option>
+                            <option value="thang1">Tháng 5</option>
+                            <option value="thang1">Tháng 6</option>
+                            <option value="thang1">Tháng 7</option>
+                            <option value="thang1">Tháng 8</option>
+                            <option value="thang1">Tháng 9</option>
+                            <option value="thang1">Tháng 10</option>
+                            <option value="thang1">Tháng 11</option>
+                            <option value="thang1">Tháng 12</option>
+                        </select>
+                        <select name="Nam">
+                            <option value="----">----</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngành Học</td>
+                    <td>
+                        <select name="nganh">
+                            @if (Model != null && Model.ListOfProducts != null)
+                            {
+                                foreach (var item in Model.ListOfProducts)
+                                {
+                                    string productName = Convert.ToString(item.ProductName);
+                                    <option value="@productName">@productName</option>
+                                }
+                            }
+else
+            {
+                <option value="kithuat">Kĩ Thuật</option>
+                <option value="kinhte">Kinh Tế</option>
+                <option value="yhoc">Y Học</option>
+                <option value="nghethuat">Nghệ Thuật</option>
+            }
+                            <!-- Thêm các ngành học khác tương tự -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tỉnh Thành</td>
+                    <td>
+                        <select name="thanhpho">
+                            <option value="hochiminh">Hồ Chí Minh</option>
+                            <option value="thuduc">Thủ Đức</option>
+
+                            <option value="hagiang">Hà Giang</option>
+                            <option value="caobang">Cao Bằng</option>
+                            <option value="laocai">Lào Cai</option>
+                            <option value="sonla">Sơn La</option>
+                            <option value="laichau">Lai Châu</option>
+                            <option value="backan">Bắc Kạn</option>
+                            <option value="langson">Lạng Sơn</option>
+                            <option value="tuyenquang">Tuyên Quang</option>
+                            <option value="dienbien">Điện Biên</option>
+                            <option value="yenbai">Yên Bái</option>
+                            <option value="thainguyen">Thái Nguyên</option>
+                            <option value="phutho">Phú Thọ</option>
+                            <option value="vinhphuc">Vĩnh Phúc</option>
+                            <option value="bacgiang">Bắc Giang</option>
+                            <option value="bacninh">Bắc Ninh</option>
+                            <option value="hanoi">Hà Nội</option>
+                            <option value="quangninh">Quảng Ninh</option>
+                            <option value="haiphong">Hải Phòng</option>
+                            <option value="hoabinh">Hòa Bình</option>
+                            <option value="hungyen">Hưng Yên</option>
+                            <option value="hanam">Hà Nam</option>
+                            <option value="thaibinh">Thái Bình</option>
+                            <option value="namdinh">Nam Định</option>
+                            <option value="ninhbinh">Ninh Bình</option>
+                            <option value="thanhhoa">Thanh Hóa</option>
+                            <option value="nghean">Nghệ An</option>
+                            <option value="hatinh">Hà Tĩnh</option>
+                            <option value="quangbinh">Quảng Bình</option>
+                            <option value="quangtri">Quảng Trị</option>
+                            <option value="thuathienhue">Thừa Thiên Huế</option>
+                            <option value="danang">Đà Nẵng</option>
+                            <option value="quangnam">Quảng Nam</option>
+                            <option value="quangngai">Quảng Ngãi</option>
+                            <option value="kontum">Kon Tum</option>
+                            <option value="gialai">Gia Lai</option>
+                            <option value="binhdinh">Bình Định</option>
+                            <option value="phuyen">Phú Yên</option>
+                            <option value="daklak">Đắk Lắk</option>
+                            <option value="khanhhoa">Khánh Hòa</option>
+                            <option value="daknong">Đắk Nông</option>
+                            <option value="lamdong">Lâm Đồng</option>
+                            <option value="ninhthuan">Ninh Thuận</option>
+                            <option value="binhphuoc">Bình Phước</option>
+                            <option value="tayninh">Tây Ninh</option>
+                            <option value="binhduong">Bình Dương</option>
+                            <option value="dongnai">Đồng Nai</option>
+                            <option value="binhthuan">Bình Thuận</option>
+                            <option value="longan">Long An</option>
+                            <option value="baria">Bà Rịa – Vũng Tàu</option>
+                            <option value="dongthap">Đồng Tháp</option>
+                            <option value="angiang">An Giang</option>
+                            <option value="tiengiang">Tiền Giang</option>
+                            <option value="kiengiang">Kiên Giang</option>
+                            <option value="vinhlong">Vĩnh Long</option>
+                            <option value="bentre">Bến Tre</option>
+                            <option value="cantho">Cần Thơ</option>
+                            <option value="travinh">Trà Vinh</option>
+                            <option value="haugiang">Hậu Giang</option>
+                            <option value="soctrang">Sóc Trăng</option>
+                            <option value="baclieu">Bạc Liêu</option>
+                            <option value="camau">Cà Mau</option>
+
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Chi Nhánh</td>
+                    <td>
+                        <select name="chinhanh">
+                            <option value="chinhanhsuvanhanh">chi nhánh Sư Vạn Hạnh</option>
+                            <option value="chinhanhhocmon">chi nhánh Hóc Môn</option>
+                            <option value="chinhanhcaothang">chi nhánh Cao Thắng</option>
+                            <option value="chinhanhthatson">chi nhánh Thất Sơn</option>
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="reset" name="Hủy" value="Hủy">
+                        <input type="submit" name="XácNhận" value="Xác Nhận">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="successMessage" style="display: none;">
+            Đăng ký thành công!
+        </div>
+
+    </form>
+</body>
+</html>
+

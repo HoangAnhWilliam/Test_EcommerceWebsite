@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "ArtCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ArtCourse</h2>
+<html>
+<head>
+    <title>Trang Giới Thiệu Giảng Viên</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="~/Content/Comments.css" rel="stylesheet" />
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Chia màn hình thành 2 cột, cột trái chiếm 1/3, cột phải chiếm 2/3 */
+            gap: 20px; /* Khoảng cách giữa cột */
+        }
+
+        .instructor-info {
+            padding: 20px;
+            background-color: #F4BF96;
+            border-radius: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỉ lệ phù hợp với video YouTube */
+            padding-top: 25px;
+            height: 0;
+        }
+
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        .instructor-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .instructor-image img {
+                border-radius: 50%; /* Để làm hình tròn */
+                max-width: 150px; /* Kích thước ảnh giảng viên */
+            }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .social-links span {
+                display: inline-block;
+                margin-right: 10px; /* Để tạo khoảng cách giữa các mục */
+            }
+
+        .course-list {
+            grid-column: 1 / span 2; /* Mở rộng danh sách khóa học trên cả hai cột */
+        }
+
+        .lesson {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .lesson-video {
+            display: none;
+        }
+
+        .lesson.active .lesson-video {
+            display: block;
+        }
+
+        .lesson-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <header>
+    </header>
+    <main class="grid-container">
+        <section class="instructor-info">
+            <h2>Thông Tin Giảng Viên</h2>
+            <p>
+                <h3>Giới thiệu Giảng viên Chí Thanh - Người đa tài trong nghệ thuật</h3>
+
+            <p>Giảng viên Chí Thanh là một trong những nhân tài nổi bật trong lĩnh vực nghệ thuật. Anh ta đã du học tại Hungary và tốt nghiệp từ các trường học danh tiếng tại đây.</p>
+
+            <p>Chí Thanh đã hoàn thành chương trình nghệ thuật tại Trường Đại học Művészeti (Trường Nghệ thuật) tại Budapest, Hungary, một trong những trường nghệ thuật uy tín và có tiếng ở châu Âu. Tại đây, anh đã phát triển sự đa dạng về chuyên môn trong nhiều lĩnh vực nghệ thuật như âm nhạc, hội họa, thiết kế và kiến trúc.</p>
+
+            <p>Trong lĩnh vực âm nhạc, Chí Thanh đã theo học tại Trường nhạc Franz Liszt Academy of Music ở Budapest, nơi anh đã được đào tạo trong lĩnh vực âm nhạc với sự hướng dẫn từ các giảng viên giỏi và nghệ sĩ tài năng.</p>
+
+            <p>Với sự đa tài và đam mê trong nghệ thuật, Giảng viên Chí Thanh là một nguồn cảm hứng và tri thức quý báu cho những người yêu nghệ thuật và muốn khám phá nhiều lĩnh vực khác nhau trong nghệ thuật.</p><br />
+            <p> Chí Thanh phụ trách bộ môn </p><br />
+            <ol>
+                <li>Ca sĩ</li>
+                <li>Họa sĩ truyện tranh</li>
+                <li>Thiết kế thời trang</li>
+                <li>Diễn Viên</li>
+            </ol>
+            </p>
+            <div class="social-links">
+                <span>Số điện thoại: 0123 456 789</span>
+                <span>Email: chithanh@gmail.com</span>
+                <span>Budapest, HUN</span>
+            </div>
+        </section>
+        <section class="instructor-image">
+            <img src="~/Images/pexels-jt-kim-914472.jpg" alt="Ảnh giảng viên"><br />
+            <a href="https://www.facebook.com">
+                <ion-icon name="logo-facebook" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.youtube.com/">
+                <ion-icon name="logo-youtube" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.linkedin.com/">
+                <ion-icon name="logo-linkedin" style="font-size: 50px;"></ion-icon>
+            </a>
+        </section>
+    </main>
+    <div class="grid-container">
+        <div class="instructor-info" style="margin-top: 20px;">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/x4D1jt0aThg?si=H7U5kDovbVSQIH4S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="instructor-info" style="margin-top: 20px;">
+            <h3>Buổi Concert Nổi Tiếng của Giảng viên Chí Thanh</h3>
+
+            <p>Giảng viên Chí Thanh đã tổ chức một buổi concert nổi tiếng tại Quận 1, Thành phố Hồ Chí Minh, một sự kiện nghệ thuật đáng chú ý và được chờ đợi. Buổi concert đã mang đến một trải nghiệm âm nhạc đặc biệt và thú vị cho khán giả từ nhiều lứa tuổi và nền văn hóa khác nhau.</p>
+
+            <p>Trong buổi concert này, Giảng viên Chí Thanh đã biểu diễn các tác phẩm âm nhạc đa dạng từ nhiều thể loại, từ cổ điển đến hiện đại, từ nhạc giao hưởng đến nhạc jazz và pop. Anh đã trình bày những tác phẩm mà anh sáng tác và sáng tạo một cách tài tình. Âm nhạc của anh đã làm xao xuyến tâm hồn và đánh thức sự cảm nhận nghệ thuật của người nghe.</p>
+
+            <p>Không chỉ về âm nhạc, buổi concert còn kết hợp với nghệ thuật hội họa và thiết kế. Trình diễn được thực hiện tại một không gian nghệ thuật đầy màu sắc, với các tác phẩm hội họa và thiết kế độc đáo, tạo nên một trải nghiệm nghệ thuật đa dạng và phong cách.</p>
+
+            <p>Buổi concert đã thu hút sự tham gia đông đảo của cộng đồng yêu nghệ thuật và âm nhạc, và đã tạo ra một không gian thú vị để tận hưởng nghệ thuật và giao lưu cùng nhau.</p>
+
+        </div>
+    </div>
+
+    <div class="review-section">
+        <h2>Đánh giá khóa học</h2>
+        <div class="review-form">
+            <form id="courseReviewForm">
+                <label for="name">Tên của bạn:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+                <label for="rating">Đánh giá:</label>
+                <select id="rating" name="rating">
+                    <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ - Xuất sắc</option>
+                    <option value="⭐⭐⭐⭐☆">⭐⭐⭐⭐☆ - Tốt</option>
+                    <option value="⭐⭐⭐☆☆">⭐⭐⭐☆☆ - Trung bình</option>
+                    <option value="⭐⭐☆☆☆">⭐⭐☆☆☆ - Kém</option>
+                    <option value="⭐☆☆☆☆">⭐☆☆☆☆ - Rất kém</option>
+                </select>
+                <label for="comment">Nhận xét của bạn:</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
+                <button type="submit">Gửi đánh giá</button>
+            </form>
+        </div>
+        <div class="reviews">
+            <h3>Đánh giá chất lượng </h3>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học rất hữu ích. Tôi đã học nhiều điều mới và có thể áp dụng kiến thức vào thực tế.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐☆</strong>
+                <p>Khóa học tốt. Tôi học được nhiều điều quan trọng và mong muốn tham gia các khóa học khác.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học thú vị và bổ ích. Giảng viên rất giỏi và nhiệt tình hỗ trợ học viên.</p>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/Comments.js"></script>
+    <a href="../Home/#art" class="btn btn-success" style="float: right;">Mua để xem bài học tiếp theo</a>
+</body>
+</html>

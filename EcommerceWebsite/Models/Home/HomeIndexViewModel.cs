@@ -17,7 +17,7 @@ namespace EcommerceWebsite.Models.Home
         public GenericUnitOfWork _unitOfWork = new GenericUnitOfWork();
         dbMyOnlineShoppingEntities context =new dbMyOnlineShoppingEntities();
         public IPagedList<Tbl_Product> ListOfProducts { get; set; }
-        public HomeIndexViewModel CreateModel(string search, int? page, int pageSize)
+        public HomeIndexViewModel CreateModel(string search, int pageSize , int? page)
         {
             //var viewModel = new HomeIndexViewModel();
             //viewModel.ListOfProducts = viewModel._unitOfWork.GetRepositoryInstance<Tbl_Product>().GetAllRecords();

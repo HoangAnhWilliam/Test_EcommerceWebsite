@@ -42,4 +42,19 @@ namespace EcommerceWebsite.Models
         public Nullable<decimal> Price { get; set; }
         public SelectList Categories { get; set; }
     }
+
+    //public class MemeberDetail
+    //{
+    //    public int MemberId { get; set; }
+    //    [Required(ErrorMessage = "Category Name Required")]
+    //    [StringLength(100, ErrorMessage = "Minimum 3, minimum 5 and maximum 100 charaters are allowed", MinimumLength = 3)]
+    //    public string FirstName { get; set; }
+    //    public string LastName { get; set; }
+    //    public string EmailId { get; set; }
+    //    public string Password { get; set; }
+    //    public Nullable<bool> IsActive { get; set; }
+    //    public Nullable<bool> IsDelete { get; set; }
+    //    public Nullable<System.DateTime> CreatedOn { get; set; }
+    //    public Nullable<System.DateTime> ModifiedOn { get; set; }
+    //}
 }

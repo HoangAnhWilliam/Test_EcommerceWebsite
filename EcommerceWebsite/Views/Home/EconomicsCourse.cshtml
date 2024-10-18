@@ -1,0 +1,208 @@
+﻿
+@{
+    ViewBag.Title = "EconomicsCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Trang Giới Thiệu Giảng Viên</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="~/Content/Comments.css" rel="stylesheet" />
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Chia màn hình thành 2 cột, cột trái chiếm 1/3, cột phải chiếm 2/3 */
+            gap: 20px; /* Khoảng cách giữa cột */
+        }
+
+        .instructor-info {
+            padding: 20px;
+            background-color: #F4BF96;
+            border-radius: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỉ lệ phù hợp với video YouTube */
+            padding-top: 25px;
+            height: 0;
+        }
+
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        .instructor-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .instructor-image img {
+                border-radius: 50%; /* Để làm hình tròn */
+                max-width: 150px; /* Kích thước ảnh giảng viên */
+            }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .social-links span {
+                display: inline-block;
+                margin-right: 10px; /* Để tạo khoảng cách giữa các mục */
+            }
+
+        .course-list {
+            grid-column: 1 / span 2; /* Mở rộng danh sách khóa học trên cả hai cột */
+        }
+
+        .lesson {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .lesson-video {
+            display: none;
+        }
+
+        .lesson.active .lesson-video {
+            display: block;
+        }
+
+        .lesson-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <header>
+        <h1>Khóa Học Trực Tuyến Ngành Kinh Tế</h1>
+    </header>
+    <main class="grid-container">
+        <section class="instructor-info">
+            <h2>Thông Tin Giảng Viên</h2>
+            <h3>Lê Đan Gia Kiệt</h3>
+            <p>
+                <strong>Kinh nghiệm giảng dạy:</strong>
+                Lê Đan Gia Kiệt là một giảng viên có hơn 20 năm kinh nghiệm giảng dạy trong lĩnh vực Kinh tế tại Đại học Tokyo. Anh ấy đã giảng dạy cho hàng nghìn sinh viên và đã giúp họ hiểu rõ về các khía cạnh quan trọng trong lĩnh vực Kinh tế.
+
+                <strong>Học vấn:</strong>
+                Nguyễn Văn A tốt nghiệp Thạc sĩ Kinh tế học tại Đại học Seoul và có bằng Tiến sĩ Kinh tế học từ Đại học Tokyo. Anh ấy cũng đã tham gia vào nhiều dự án nghiên cứu và có nhiều bài báo khoa học được công bố trong các tạp chí uy tín.
+
+                Anh ấy có kiến thức sâu rộng về Kinh tế quốc tế, quản lý tài chính, Tiền ảo, Chứng khoán, và chiến lược kinh doanh. Lê Đan Gia Kiệt luôn tận tâm trong việc truyền đạt kiến thức và giúp sinh viên phát triển kỹ năng cần thiết để thành công trong lĩnh vực Kinh tế.<br />
+
+                Lê Đan Gia Kiệt phụ trách và giảng dạy các môn sau:<br />
+                <ol>
+                    <li>Kinh doanh Quốc tế</li>
+                    <li>Đầu tư Chứng khoán</li>
+                    <li>Kế Toán</li>
+                    <li>Quản trị Kinh doanh</li>
+                    <li>Marketing</li>
+                </ol>
+            </p>
+            <div class="social-links">
+                <span>Số điện thoại: 0123 456 789</span>
+                <span>Email: ledangiakiet@gmail.com</span>
+                <span>Tokyo, JP</span>
+            </div>
+        </section>
+        <section class="instructor-image">
+            <img src="~/Images/pexels-andrea-piacquadio-3760539.jpg" alt="Ảnh giảng viên"><br />
+            <a href="https://www.facebook.com">
+                <ion-icon name="logo-facebook" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.youtube.com/">
+                <ion-icon name="logo-youtube" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.linkedin.com/">
+                <ion-icon name="logo-linkedin" style="font-size: 50px;"></ion-icon>
+            </a>
+        </section>
+    </main>
+    <div class="grid-container">
+        <div class="instructor-info" style="margin-top: 20px;">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/gPrphSEhwho?si=h-Dn6Jbqoa4UJ-D7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="instructor-info" style="margin-top: 20px;">
+            <h3>Bài 1: Kinh tế vĩ mô</h3>
+            <p>Kinh tế Vĩ mô là một trong những lĩnh vực quan trọng trong nền kinh tế học. Nó tập trung vào nghiên cứu về các yếu tố ảnh hưởng đến toàn bộ nền kinh tế, bao gồm tỷ lệ tăng trưởng kinh tế, lạm phát, thất nghiệp, và nhiều yếu tố khác. Môn học này giúp sinh viên hiểu rõ về các chủ thể kinh tế lớn như quốc gia, khu vực và thế giới.</p>
+
+            <h2>Tại sao nên học Kinh tế Vĩ mô?</h2>
+
+            <p>Kinh tế Vĩ mô giúp bạn phát triển kỹ năng phân tích và đánh giá các chính sách kinh tế, từ đó đưa ra dự đoán về hướng phát triển của nền kinh tế. Ngoài ra, môn học này còn giúp bạn hiểu sâu hơn về cách thức các yếu tố như chính sách tiền tệ, chính sách tài khóa và chính sách ngoại thương tác động đến cuộc sống hàng ngày của chúng ta.</p>
+
+            <h2>Chủ đề phổ biến trong Kinh tế Vĩ mô</h2>
+
+            <p>Trong quá trình học môn Kinh tế Vĩ mô, bạn sẽ nắm vững về các chủ đề như:</p>
+
+            <ul>
+                <li><strong>Tăng trưởng kinh tế:</strong> Nghiên cứu về các yếu tố thúc đẩy tăng trưởng và sự suy giảm của nền kinh tế.</li>
+                <li><strong>Lạm phát và thất nghiệp:</strong> Hiểu về nguyên nhân và cách kiểm soát lạm phát, cũng như tác động của thất nghiệp đối với nền kinh tế và xã hội.</li>
+                <li><strong>Chính sách tiền tệ và tài khóa:</strong> Phân tích cách mà chính phủ và ngân hàng trung ương can thiệp vào nền kinh tế để duy trì ổn định và phát triển.</li>
+            </ul>
+
+            <h2>Cơ hội nghề nghiệp</h2>
+
+            <p>Người học Kinh tế Vĩ mô có thể tìm kiếm cơ hội nghề nghiệp trong các lĩnh vực như ngân hàng, tài chính, chính phủ, tổ chức quốc tế và doanh nghiệp tư nhân. Ngoài ra, những kiến thức thu thập được từ môn học này còn giúp bạn trở thành nhà kinh tế, chuyên gia tài chính hoặc nhà nghiên cứu tại các trường đại học và viện nghiên cứu.</p>
+
+            <p>Nếu bạn đam mê hiểu biết về cách các quốc gia và thế giới hoạt động kinh tế, Kinh tế Vĩ mô là một lựa chọn tuyệt vời để bắt đầu hành trình nghề nghiệp của mình.</p>
+        </div>
+    </div>
+    <div class="review-section">
+        <h2>Đánh giá khóa học</h2>
+        <div class="review-form">
+            <form id="courseReviewForm">
+                <label for="name">Tên của bạn:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+                <label for="rating">Đánh giá:</label>
+                <select id="rating" name="rating">
+                    <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ - Xuất sắc</option>
+                    <option value="⭐⭐⭐⭐☆">⭐⭐⭐⭐☆ - Tốt</option>
+                    <option value="⭐⭐⭐☆☆">⭐⭐⭐☆☆ - Trung bình</option>
+                    <option value="⭐⭐☆☆☆">⭐⭐☆☆☆ - Kém</option>
+                    <option value="⭐☆☆☆☆">⭐☆☆☆☆ - Rất kém</option>
+                </select>
+                <label for="comment">Nhận xét của bạn:</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
+                <button type="submit">Gửi đánh giá</button>
+            </form>
+        </div>
+        <div class="reviews">
+            <h3>Đánh giá chất lượng </h3>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học rất hữu ích. Tôi đã học nhiều điều mới và có thể áp dụng kiến thức vào thực tế.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐☆</strong>
+                <p>Khóa học tốt. Tôi học được nhiều điều quan trọng và mong muốn tham gia các khóa học khác.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học thú vị và bổ ích. Giảng viên rất giỏi và nhiệt tình hỗ trợ học viên.</p>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/Comments.js"></script>
+
+    <a href="../Home/#enconomy" class="btn btn-success" style="float: right;">Mua để xem bài học tiếp theo</a>
+</body>
+</html>

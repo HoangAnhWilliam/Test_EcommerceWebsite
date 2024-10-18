@@ -14,40 +14,6 @@
 <body>
     <div class="container">
         <div class="row">
-            @*<div class="col-md-6 col-sm-6 col-xl-6">
-            <div class="logo">
-                <h1><a href="#">Online<span>Shopping Store</span></a></h1>
-                <p>My Shop</p>
-                <div>
-                    <div class="menus">
-                        <table>
-                            <tr>
-                                <td><button type="button" class="btn btn-outline-dark" href="#">Home</button></td>
-                                <td><button type="button" class="btn btn-outline-dark" href="#">Location</button></td>
-                                <td><button type="button" class="btn btn-outline-dark" href="#">About Us</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xl-6">
-            <div class="account">
-                <ul>
-                    <li>
-                        <div class="hidden-xs">
-                            <h4><a>Call</a></h4>
-                            <p>09#####-######</p>
-                        </div>
-
-                        <div class="visible-xs">
-
-                            <p>09#####-######</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>*@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">ULearn</a>
@@ -63,23 +29,35 @@
                                 <a class="nav-link" href="../Home/About">Về Chúng Tôi</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link" href="../Home/Contact">Liên Hệ</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown link
+                                    Khóa Học
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="../Home/#enconomy">Kinh Tế</a></li>
+                                    <li><a class="dropdown-item" href="../Home/#technology">Kỹ Thuật</a></li>
+                                    <li><a class="dropdown-item" href="../Home/#medicine">Y Học</a></li>
+                                    <li><a class="dropdown-item" href="../Home/#art">Nghệ thuật</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink" aria-expanded="false" role="button">Cart<b class="caret"></b></a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Đăng Kí/ Đăng Nhập
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../Register/Index">Tài Khoản</a></li>
+                                <li><a class="dropdown-item" href="../Register/LoginAdmin">Admin</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink" aria-expanded="false" role="button">Giỏ hàng<b class="caret"></b></a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 @if (Session["cart"] != null && ((List<Item>)Session["cart"]).Count > 0)
                                 {
@@ -103,26 +81,14 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" method="post">
+                        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
             </nav>
 
             <div>
-
-                @*<div class="row">
-                <div class="col-md-12">
-                    <div class="nav-menus">
-                        <ul class="nav nav-pills">
-                            <li class="active"><a style ="border-radius:initial;" href="#">Home</a></li>
-                            <li><a style ="border-radius:initial;" href="#">Location</a></li>
-                            <li><a style ="border-radius:initial;" href="#">About</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>*@
 
                 <div>
 
@@ -182,7 +148,6 @@
                             | ĐT: 0247.305.9999 | Email: Ulearn@gmail.com | &copy; @DateTime.Now.Year Ulearn
 
                         </small>
-
                     </div>
                 </footer>
             </div>

@@ -1,0 +1,30 @@
+﻿.review {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.review-section {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.review-form textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: none;
+}
+
+.rating {
+    font-size: 24px;
+}
+
+.star {
+    color: #ffcc00;
+    margin: 0 3px;
+}
+
+.star-empty {
+    color: #ddd;
+    margin: 0 3px;
+}

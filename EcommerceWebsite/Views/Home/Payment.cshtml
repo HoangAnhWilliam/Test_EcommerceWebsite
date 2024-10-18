@@ -1,0 +1,323 @@
+﻿@using EcommerceWebsite.Models.Home
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html lang="en">
+<head>
+    <title>Thanh Toán</title>
+    <meta charset="utf-8">
+    <link href="~/Content/Payment.css" rel="stylesheet" />
+</head>
+<style>
+    body {
+        background-image: url(https://img4.thuthuatphanmem.vn/uploads/2020/12/26/background-mau-cam-trang_052544888.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100 %;
+    }
+</style>
+ </head>
+</html>
+
+
+<body style="margin-top: 10px;">
+
+    <div class="cart-customer-container clearfix d-block">
+        <div class="customer-left">
+            <p class="title red font-600 text-15"> THÔNG TIN THANH TOÁN </p>
+
+            <div class="d-flex flex-wrap">
+                <div class="form-info-group">
+                    <input type="text" placeholder="Họ và tên" name="user_info[name]" id="buyer_name" value="">
+
+                    <input type="text" placeholder="Email" name="user_info[email]" id="buyer_email" value="">
+
+                    <input type="text" placeholder="Số điện thoại" name="user_info[tel]" id="buyer_tel" value="">
+
+                    <select name="user_info[province]" class="" id="buyer_province" onchange="getProvince(this.value);">
+                        <option value="0">Tỉnh/Thành phố</option>
+
+                        <option value="1">Hà Nội</option>
+
+                        <option value="2">TP HCM</option>
+
+                        <option value="5">Hải Phòng</option>
+
+                        <option value="4">Đà Nẵng</option>
+
+                        <option value="6">An Giang</option>
+
+                        <option value="7">Bà Rịa-Vũng Tàu</option>
+
+                        <option value="13">Bình Dương</option>
+
+                        <option value="15">Bình Phước</option>
+
+                        <option value="16">Bình Thuận</option>
+
+                        <option value="14">Bình Định</option>
+
+                        <option value="8">Bạc Liêu</option>
+
+                        <option value="10">Bắc Giang</option>
+
+                        <option value="9">Bắc Kạn</option>
+
+                        <option value="11">Bắc Ninh</option>
+
+                        <option value="12">Bến Tre</option>
+
+                        <option value="18">Cao Bằng</option>
+
+                        <option value="17">Cà Mau</option>
+
+                        <option value="3">Cần Thơ</option>
+
+                        <option value="24">Gia Lai</option>
+
+                        <option value="25">Hà Giang</option>
+
+                        <option value="26">Hà Nam</option>
+
+                        <option value="27">Hà Tĩnh</option>
+
+                        <option value="30">Hòa Bình</option>
+
+                        <option value="28">Hải Dương</option>
+
+                        <option value="29">Hậu Giang</option>
+
+                        <option value="31">Hưng Yên</option>
+
+                        <option value="32">Khánh Hòa</option>
+
+                        <option value="33">Kiên Giang</option>
+
+                        <option value="34">Kon Tum</option>
+
+                        <option value="35">Lai Châu</option>
+
+                        <option value="38">Lào Cai</option>
+
+                        <option value="36">Lâm Đồng</option>
+
+                        <option value="37">Lạng Sơn</option>
+
+                        <option value="39">Long An</option>
+
+                        <option value="40">Nam Định</option>
+
+                        <option value="41">Nghệ An</option>
+
+                        <option value="42">Ninh Bình</option>
+
+                        <option value="43">Ninh Thuận</option>
+
+                        <option value="44">Phú Thọ</option>
+
+                        <option value="45">Phú Yên</option>
+
+                        <option value="46">Quảng Bình</option>
+
+                        <option value="47">Quảng Nam</option>
+
+                        <option value="48">Quảng Ngãi</option>
+
+                        <option value="49">Quảng Ninh</option>
+
+                        <option value="50">Quảng Trị</option>
+
+                        <option value="51">Sóc Trăng</option>
+
+                        <option value="52">Sơn La</option>
+
+                        <option value="53">Tây Ninh</option>
+
+                        <option value="56">Thanh Hóa</option>
+
+                        <option value="54">Thái Bình</option>
+
+                        <option value="55">Thái Nguyên</option>
+
+                        <option value="57">Thừa Thiên-Huế</option>
+
+                        <option value="58">Tiền Giang</option>
+
+                        <option value="59">Trà Vinh</option>
+
+                        <option value="60">Tuyên Quang</option>
+
+                        <option value="61">Vĩnh Long</option>
+
+                        <option value="62">Vĩnh Phúc</option>
+
+                        <option value="63">Yên Bái</option>
+
+                        <option value="19">Đắk Lắk</option>
+
+                        <option value="22">Đồng Nai</option>
+
+                        <option value="23">Đồng Tháp</option>
+
+                        <option value="21">Điện Biên</option>
+
+                        <option value="20">Đăk Nông</option>
+
+                    </select>
+
+                    <select name="user_info[district]" id="js-district-holder">
+                        <option value="0">Quận/Huyện</option>
+                        <option value="1">Quận 1</option>
+                        <option value="2">Quận 2</option>
+                        <option value="3">Quận 3</option>
+                        <option value="4">Quận 4</option>
+                        <option value="5">Quận 5</option>
+                        <option value="6">Quận 6</option>
+                        <option value="7">Quận 7</option>
+                        <option value="8">Quận 8</option>
+                        <option value="9">Quận 9</option>
+                        <option value="10">Quận 10</option>
+                        <option value="11">Quận 11</option>
+                        <option value="12">Quận 12</option>
+
+                    </select>
+
+                    <input type="text" placeholder="Toà nhà, Tên đường..." id="buyer_address" name="user_info[address]" value="">
+                </div>
+
+                <div class="form-info-group clearfix">
+                    <textarea placeholder="Nhập ghi chú cho chúng tôi" name="user_info[note]" id="buyer_note"></textarea>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="customer-right">
+            <p class="title red font-600 text-15"> HÌNH THỨC THANH TOÁN </p>
+
+
+            <div class="payment" style="margin-bottom: 60px;">
+
+
+
+                <label class="label-container">
+                    <input type="radio" id="pay_method_1" name="pay_method" value="1" checked="">
+                    <span class="checkmark"></span>
+                    <span>Ví điện tử</span>
+                </label>
+                <label class="label-container">
+                    <input type="radio" id="pay_method_2" name="pay_method" value="2" onclick="showBankAccountInput()">
+                    <span class="checkmark"></span>
+                    <span>Thanh toán bằng tài khoản</span>
+                </label>
+                <div class="payment-detail" id="bank_account_input" style="display: none;">
+                    <input type="text" id="bank_account_number" placeholder="Số tài khoản (11 số)">
+
+                </div>
+                <div class="payment-detail" id="bank_account_input" style="display: none;">
+                    <input type="text" id="bank_account_number" name="user_info[bank_account]" placeholder="Số tài khoản (11 số)">
+                </div>
+                <img src="~/Images/qr.png" id="qr_code_image" alt="QR Code" , width="190px" height="190px">
+
+
+            </div>
+
+
+            <div class="text-right text-13 cart-total-price-group">
+                @{
+                    int Total = 0;
+                }
+                @foreach (Item item in (List<Item>)Session["cart"])
+                {
+                    int lineTotal = Convert.ToInt32(item.quantity * item.product.Price);
+                    Total = Convert.ToInt32(@Total + lineTotal);
+                }
+                Tổng tiền(@Total)
+                    <b class="red text-22 font-600">
+                        <span class="js-total-cart-price"></span>
+                    </b>
+                </div>
+
+
+
+            <div class="clearfix cart-button-buy">
+                <button type="submit" class="w-100 js-send-cart font-weight-bold text-18" onclick="showPaymentSuccess()"> ĐẶT MUA NGAY </button>
+
+            </div>
+
+            <input type="hidden" name="send_order" value="yes">
+            <input type="hidden" id="js-total-before-fee-discount" value="35000">
+
+            <input type="hidden" id="js-discount-voucher" value="0">
+            <input type="hidden" name="coupon_code" value="" id="js_coupon_code">
+            <input type="hidden" id="js-discount-membership" value="0">
+            <input type="hidden" name="shipping_fee" id="js-fee-shipping" value="0">
+            <input type="hidden" name="cod_fee" id="js-fee-cod" value="0">
+            <div id="successMessage" style="display: none;">
+
+            </div>
+        </div>
+        <div id="successMessage" style="display: none;">
+            Thanh toán thành công!
+        </div>
+    </div>
+    <script src="~/Scripts/Payment.js"></script>
+    <script>
+        function showQRCode() {
+            var qrCodeImage = document.getElementById("qr_code_image");
+            qrCodeImage.style.display = "block";
+        }
+
+        function hideQRCode() {
+            var qrCodeImage = document.getElementById("qr_code_image");
+            qrCodeImage.style.display = "none";
+        }
+        function showBankAccountInput() {
+            var bankAccountInput = document.getElementById("bank_account_input");
+            var radioPayMethod2 = document.getElementById("pay_method_2");
+
+            if (radioPayMethod2.checked) {
+                bankAccountInput.style.display = "block";
+            } else {
+                bankAccountInput.style.display = "none";
+            }
+        }
+
+        function validateBankAccount() {
+            var bankAccountNumber = document.getElementById("bank_account_number").value;
+
+            if (bankAccountNumber.length !== 11) {
+                alert("Số tài khoản phải có đúng 11 số");
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+        document.getElementById("bank_account_number").onchange = function () {
+            validateBankAccount();
+        };
+
+        function showPaymentSuccess() {
+            var isValid = validateForm();
+
+            if (isValid) {
+                var successMessage = document.getElementById("successMessage");
+                successMessage.style.display = "block";
+            }
+        }
+
+        function validateForm() {
+
+            alert("Đăng ký thành công!");
+            return true;
+
+        }
+
+    </script>
+</body>
+</html>

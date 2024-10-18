@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "MedicalCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Trang Giới Thiệu Giảng Viên</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="~/Content/Comments.css" rel="stylesheet" />
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Chia màn hình thành 2 cột, cột trái chiếm 1/3, cột phải chiếm 2/3 */
+            gap: 20px; /* Khoảng cách giữa cột */
+        }
+
+        .instructor-info {
+            padding: 20px;
+            background-color: #F4BF96;
+            border-radius: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỉ lệ phù hợp với video YouTube */
+            padding-top: 25px;
+            height: 0;
+        }
+
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        .instructor-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .instructor-image img {
+                border-radius: 50%; /* Để làm hình tròn */
+                max-width: 150px; /* Kích thước ảnh giảng viên */
+            }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .social-links span {
+                display: inline-block;
+                margin-right: 10px; /* Để tạo khoảng cách giữa các mục */
+            }
+
+        .course-list {
+            grid-column: 1 / span 2; /* Mở rộng danh sách khóa học trên cả hai cột */
+        }
+
+        .lesson {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .lesson-video {
+            display: none;
+        }
+
+        .lesson.active .lesson-video {
+            display: block;
+        }
+
+        .lesson-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <header>
+        <h1>Khóa Học Trực Tuyến Ngành Y</h1>
+    </header>
+    <main class="grid-container">
+        <section class="instructor-info">
+            <h2>Thông Tin Giảng Viên</h2>
+            <p>
+                <h1>Giảng viên Kiều Tiến An - Sự đam mê và hiệu suất xuất sắc trong lĩnh vực Y học</h1>
+
+            <p>Giới thiệu về Giảng viên Kiều Tiến An</p>
+
+            <p>Giảng viên Kiều Tiến An là một nhân tài xuất sắc trong lĩnh vực Y học, người đã đặt ra dấu ấn lớn trong cả nghiên cứu và công tác giảng dạy. Với sự đam mê không ngừng và kiến thức chuyên sâu về lĩnh vực này, ông Kiều Tiến An đã trở thành một trong những giảng viên hàng đầu trong ngành Y học.</p>
+
+            <p>Lĩnh vực Y học - Cuộc hành trình nghề nghiệp</p>
+
+            <p>Kiều Tiến An đã bắt đầu sự nghiệp trong lĩnh vực Y học hơn 20 năm trước. Sự cam kết với nghề, trí tuệ và nỗ lực không biết mệt mỏi đã giúp ông Kiều Tiến An phát triển thành một chuyên gia về các lĩnh vực quan trọng trong Y học, bao gồm:</p>
+
+            <ul>
+                <li>Nghiên cứu y học cơ bản và áp dụng.</li>
+                <li>Chẩn đoán và điều trị các bệnh lý khó khăn.</li>
+                <li>Giảng dạy và đào tạo thế hệ trẻ trong lĩnh vực Y học.</li>
+            </ul><br />
+
+            Kiều Tiến An phụ trách và giảng dạy các môn sau:<br />
+            <ol>
+                <li>Lâm sàng nội khoa</li>
+                <li>Nghiên cứu y học cơ bản</li>
+                <li>Chẩn đoán và điều trị bệnh lý tim mạch</li>
+            </ol>
+            </p>
+            <div class="social-links">
+                <span>Số điện thoại: 0123 456 789</span>
+                <span>Email: Kieutienan@gmail.com</span>
+                <span>La Habana, CU</span>
+            </div>
+        </section>
+        <section class="instructor-image" style="margin-top: 100px;">
+            <img src="~/Images/freddir-highmore-in-the-abc-series-the-good-doctor-photo-credit-art-streiberabc.jpg" alt="Ảnh giảng viên"><br />
+            <a href="https://www.facebook.com">
+                <ion-icon name="logo-facebook" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.youtube.com/">
+                <ion-icon name="logo-youtube" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.linkedin.com/">
+                <ion-icon name="logo-linkedin" style="font-size: 50px;"></ion-icon>
+            </a>
+        </section>
+    </main>
+    <div class="grid-container">
+        <div class="instructor-info" style="margin-top: 20px;">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8byiwOY5XM0?si=JVYyO9svG6nqujGb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="instructor-info" style="margin-top: 20px;">
+            <h3>Bài học đầu tiên với Giảng viên Kiều Tiến An - Hành trình đầy đam mê và hiệu suất xuất sắc</h3>
+
+            <p>Trong bài học đầu tiên, bạn sẽ có cảm giác như trong bộ phim "The Good Doctor". Tương tự như nhân vật chính trong bộ phim, Giảng viên Kiều Tiến An mang đến một tinh thần đầy đam mê và kiến thức chuyên sâu về Y học. Hành trình này sẽ là cuộc khám phá về sự nhiệt huyết và tầm nhìn vượt bậc về lĩnh vực Y học.</p>
+
+            <p>Trong bài học này, bạn sẽ được hướng dẫn khám phá các khía cạnh quan trọng của Y học cơ bản và áp dụng, chẩn đoán và điều trị các bệnh lý phức tạp. Giảng viên Kiều Tiến An sẽ là người hướng dẫn tận tâm, truyền đạt kiến thức một cách sâu sắc và giúp bạn phát triển kỹ năng thực hành trong lĩnh vực này.</p>
+
+            <p>Ngoài ra, bài học đầu tiên cũng giúp bạn thấu hiểu tầm quan trọng của việc giúp đỡ người khác, đặc biệt trong lĩnh vực Y học. Giống như nhân vật chính trong "The Good Doctor", bạn sẽ học cách đối diện với thách thức, khám phá giải pháp sáng tạo và luôn đặt bệnh nhân lên hàng đầu.</p>
+
+            <p>Giảng viên Kiều Tiến An không chỉ truyền đạt kiến thức mà còn truyền đạt tinh thần và đạo đức nghề nghiệp, giúp bạn trở thành một Y bác sĩ xuất sắc và tốt bụng, giống như trong bộ phim đã nêu lên.</p>
+        </div>
+    </div>
+
+    <div class="review-section">
+        <h2>Đánh giá khóa học</h2>
+        <div class="review-form">
+            <form id="courseReviewForm">
+                <label for="name">Tên của bạn:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+                <label for="rating">Đánh giá:</label>
+                <select id="rating" name="rating">
+                    <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ - Xuất sắc</option>
+                    <option value="⭐⭐⭐⭐☆">⭐⭐⭐⭐☆ - Tốt</option>
+                    <option value="⭐⭐⭐☆☆">⭐⭐⭐☆☆ - Trung bình</option>
+                    <option value="⭐⭐☆☆☆">⭐⭐☆☆☆ - Kém</option>
+                    <option value="⭐☆☆☆☆">⭐☆☆☆☆ - Rất kém</option>
+                </select>
+                <label for="comment">Nhận xét của bạn:</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
+                <button type="submit">Gửi đánh giá</button>
+            </form>
+        </div>
+        <div class="reviews">
+            <h3>Đánh giá chất lượng </h3>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học rất hữu ích. Tôi đã học nhiều điều mới và có thể áp dụng kiến thức vào thực tế.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐☆</strong>
+                <p>Khóa học tốt. Tôi học được nhiều điều quan trọng và mong muốn tham gia các khóa học khác.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học thú vị và bổ ích. Giảng viên rất giỏi và nhiệt tình hỗ trợ học viên.</p>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/Comments.js"></script>
+    <a href="../Home/#medicine" class="btn btn-success" style="float: right;">Mua để xem bài học tiếp theo</a>
+</body>
+</html>

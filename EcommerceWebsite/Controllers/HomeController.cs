@@ -17,7 +17,7 @@ namespace EcommerceWebsite.Controllers
         public ActionResult Index(string search, int? page)
         {
             HomeIndexViewModel model = new HomeIndexViewModel();
-            HomeIndexViewModel viewModel = model.CreateModel(search, null , 4);
+            HomeIndexViewModel viewModel = model.CreateModel(search, 21 , page);
             return View(viewModel);
         }
 
@@ -84,5 +84,12 @@ namespace EcommerceWebsite.Controllers
             Session["cart"] = cart;
             return Redirect("Index");
         }
+
+        public ActionResult TechnicalCourse() { return View(); }
+        public ActionResult EconomicsCourse() { return View(); }
+        public ActionResult MedicalCourse() { return View(); }
+        public ActionResult ArtCourse() {  return View(); }
+        public ActionResult RegisterClass() { return View(); }  
+        public ActionResult Payment() { return View(); }
     }
 }

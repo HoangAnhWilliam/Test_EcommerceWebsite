@@ -23,24 +23,24 @@ else
             </tr>
         </thead>
         <tbody>
-            @{ 
+            @{
                 int Total = 0;
             }
             @foreach (Item item in (List<Item>)Session["cart"])
             {
                 int lineTotal = Convert.ToInt32(item.quantity * item.product.Price);
                 Total = Convert.ToInt32(@Total + lineTotal);
-                    <tr>
-                        <td>@item.product.ProductName</td>
-                        <td>@item.product.Price</td>
-                        <td>@item.quantity</td>
-                        <td>@lineTotal</td>
-                    </tr>
+                <tr>
+                    <td>@item.product.ProductName</td>
+                    <td>@item.product.Price</td>
+                    <td>@item.quantity</td>
+                    <td>@lineTotal</td>
+                </tr>
             }
             <tr>
                 <td colspan="4" class="text-end">Tổng cộng = @Total</td>
             </tr>
         </tbody>
     </table>
+    <a href="../Payment" class="btn btn-success">Thanh Toán</a>
 }
-<button type="button" class="btn btn-success btn-lg">Thanh Toán</button>

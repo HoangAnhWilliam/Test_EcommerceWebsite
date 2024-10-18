@@ -17,6 +17,7 @@ namespace EcommerceWebsite.Controllers
     {
         // GET: Admin
         public GenericUnitOfWork _unitOfWork = new GenericUnitOfWork();
+        dbMyOnlineShoppingEntities database = new dbMyOnlineShoppingEntities();
 
         public List<SelectListItem> GetCategory()
         {
@@ -117,6 +118,90 @@ namespace EcommerceWebsite.Controllers
             tbl.CreatedDate = DateTime.Now;
             _unitOfWork.GetRepositoryInstance<Tbl_Product>().Add(tbl);
             return RedirectToAction("Product");
+        }
+
+        public ActionResult Members()
+        {
+            if (TempData["MemberData"] != null)
+            {
+                var memberData = TempData["MemberData"] as Tbl_Members;
+                return View(memberData);
+
+            }
+            var allMember = database.Tbl_Members.ToList();
+            return View(allMember);
+        }
+
+        [HttpGet]
+        public ActionResult MemberAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MemberAdd(Tbl_Members member)
+        {
+            try
+            {
+                database.Tbl_Members.Add(member);
+                database.SaveChanges();
+                return RedirectToAction("Members");
+            }
+            catch
+            {
+                return Content("Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult MemberEdit(int? memberId)
+        {
+            if (memberId == null)
+            {
+                // Xử lý khi memberId là null, có thể redirect hoặc trả về lỗi
+                return RedirectToAction("Error");
+            }
+            var member = database.Tbl_Members.Where(x => x.MemberId == memberId).FirstOrDefault();
+            return View(member);
+        }
+
+        [HttpPost]
+        public ActionResult MemberEdit(Tbl_Members member)
+        {
+            database.Entry(member).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("Members");
+        }
+
+        [HttpGet]
+        public ActionResult MemberDelete(int? memberId)
+        {
+            if(memberId == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var member = database.Tbl_Members.Where(x => x.MemberId == memberId).FirstOrDefault();
+            if(member == null)
+            {
+                return HttpNotFound();
+            }
+            return View(member);
+        }
+
+        [HttpPost, ActionName("MemberDelete")]
+        public ActionResult MemberDeleteConfirmed(int memberId)
+        {
+            try
+            {
+                var member = database.Tbl_Members.Where(x => x.MemberId == memberId).FirstOrDefault();
+                database.Tbl_Members.Remove(member);
+                database.SaveChanges();
+                return RedirectToAction("Members");
+            }
+            catch
+            {
+                return Content("Error");
+            }
         }
     }
 }

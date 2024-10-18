@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "LoginAdmin";
+    Layout = null;
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đăng Nhập</title>
+    <link href="~/Content/LoginAdmin.css" rel="stylesheet" />
+</head>
+<style>
+    body {
+        background-image: url(https://wallpapers.com/images/hd/hacker-green-binary-codes-hnae561v4cbp8cvu.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100 %;
+    }
+</style>
+<body>
+    <div class="login-container">
+        <h2>Đăng Nhập</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Tên người dùng" required>
+            <input type="password" id="password" placeholder="Mật khẩu" required>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="submit" class="btn btn-success">Đăng Kí</button>
+                <a href="../Home/Index"><button type="button" class="btn btn-danger">Thoát</button></a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById("login-form");
+
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Thực hiện kiểm tra tên người dùng và mật khẩu ở đây
+            // Ví dụ:
+            if (username === "admin" && password === "admin") {
+                alert("Đăng nhập thành công!");
+                window.location.href = "../Admin/dashBoard";
+                // Thực hiện chuyển hướng đến trang chính hoặc trang khác
+            } else {
+                alert("Đăng nhập thất bại. Vui lòng kiểm tra tên người dùng và mật khẩu.");
+            }
+        });
+    </script>
+</body>
+</html>

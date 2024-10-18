@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "TechnicalCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>Trang Giới Thiệu Giảng Viên</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="~/Content/Comments.css" rel="stylesheet" />
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Chia màn hình thành 2 cột, cột trái chiếm 1/3, cột phải chiếm 2/3 */
+            gap: 20px; /* Khoảng cách giữa cột */
+        }
+
+        .instructor-info {
+            padding: 20px;
+            background-color: #F4BF96;
+            border-radius: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỉ lệ phù hợp với video YouTube */
+            padding-top: 25px;
+            height: 0;
+        }
+
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        .instructor-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .instructor-image img {
+                border-radius: 50%; /* Để làm hình tròn */
+                max-width: 150px; /* Kích thước ảnh giảng viên */
+            }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .social-links span {
+                display: inline-block;
+                margin-right: 10px; /* Để tạo khoảng cách giữa các mục */
+            }
+
+        .course-list {
+            grid-column: 1 / span 2; /* Mở rộng danh sách khóa học trên cả hai cột */
+        }
+
+        .lesson {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .lesson-video {
+            display: none;
+        }
+
+        .lesson.active .lesson-video {
+            display: block;
+        }
+
+        .lesson-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <header>
+        <h1>Khóa Học Trực Tuyến Ngành Kĩ Thuật</h1>
+    </header>
+    <main class="grid-container">
+        <section class="instructor-info">
+            <h2>Thông Tin Giảng Viên</h2>
+            <h3>Nguyễn Gia Hoàng Anh</h3>
+            <p>
+                Nguyễn Gia Hoàng Anh là một giảng viên kỹ thuật có hơn 10 năm kinh nghiệm trong lĩnh vực này. Anh ấy đang giảng dạy tại Trường Đại học Massachusetts Institute of Technology (MIT) và đã đạt được nhiều thành tựu trong việc truyền đạt kiến thức kỹ thuật cho học sinh và sinh viên. Công việc giảng dạy của Nguyễn Văn An bao gồm thuyết trình, hướng dẫn thực hành, và tạo ra môi trường học tập tích cực cho học sinh.
+
+                Nguyễn Gia Hoàng Anh có một bằng tiến sĩ Kỹ thuật Khoa học máy tính, một bằng thạc sĩ Kỹ thuật Cơ khí và một bằng cử nhân Kỹ Thuật Điện tử. Anh ấy đã làm việc trong ngành khoa học máy tính và phát triển phần mềm và phần cứng tại các công ty thuộc MAANG (các công ty đứng đầu Hoa Kì) trước khi quyết định theo đuổi sự nghiệp giảng dạy. Kinh nghiệm thực tế trong ngành kỹ thuật giúp anh ấy cung cấp những kiến thức thực tiễn và ví dụ trong quá trình giảng dạy.
+
+                Nguyễn Gia Hoàng Anh luôn nỗ lực để tạo ra môi trường học tập đa dạng và thú vị cho học sinh, giúp họ hiểu sâu hơn về lĩnh vực kỹ thuật và phát triển kỹ năng cần thiết cho tương lai.<br />
+
+                Nguyễn Gia Hoàng Anh phụ trách và giảng dạy các môn sau:<br />
+                <ol>
+                    <li>Lập trình cơ bản đến nâng cao ngôn ngữ C#</li>
+                    <li>Lập trình Unity và Winform</li>
+                    <li>Cơ khí</li>
+                    <li>Điện Tử</li>
+                </ol>
+            </p>
+            <div class="social-links">
+                <span>Số điện thoại: 0123 456 789</span>
+                <span>Email: nguyengiahoanganh@gmail.com</span>
+                <span>Masssachusetts, USA</span>
+            </div>
+        </section>
+        <section class="instructor-image">
+            <img src="~/Images/pexels-jt-kim-914472.jpg" alt="Ảnh giảng viên"><br />
+            <a href="https://www.facebook.com">
+                <ion-icon name="logo-facebook" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.youtube.com/">
+                <ion-icon name="logo-youtube" style="font-size: 50px;"></ion-icon>
+            </a><br />
+            <a href="https://www.linkedin.com/">
+                <ion-icon name="logo-linkedin" style="font-size: 50px;"></ion-icon>
+            </a>
+        </section>
+    </main>
+    <div class="grid-container">
+        <div class="instructor-info" style="margin-top: 20px;">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Rsxao9ptdmI?si=1sTj8PWX7RUSKuEn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="instructor-info" style="margin-top: 20px;">
+            <h3>Nguyễn Gia Hoàng Anh - Kinh nghiệm giảng dạy giống Youtuber Mark Rober</h3>
+
+            <p>Nguyễn Gia Hoàng Anh là một giảng viên có kinh nghiệm trong lĩnh vực giảng dạy và truyền đạt kiến thức, giống như Youtuber nổi tiếng Mark Rober. Anh đã chia sẻ và truyền đạt kiến thức với sự đam mê và sự sáng tạo tương tự như Mark Rober.</p>
+
+            <p>Là một giảng viên, Nguyễn Gia Hoàng Anh đã tạo ra các trải nghiệm giảng dạy độc đáo và thú vị cho học sinh. Anh sử dụng phương pháp học tập dựa trên thực tế, kết hợp lý thuyết với thực tế và thường xuyên thực hiện các thí nghiệm để minh họa cho các khái niệm phức tạp.</p>
+
+            <p>Tương tự như Mark Rober trên YouTube, Nguyễn Gia Hoàng Anh đã xây dựng các dự án và hoạt động thú vị trong quá trình giảng dạy. Anh đã tạo ra các thử nghiệm và dự án thực tế để giúp học sinh hiểu rõ hơn về các môn học và phát triển kỹ năng sáng tạo và tư duy logic.</p>
+
+            <p>Kinh nghiệm giảng dạy của Nguyễn Gia Hoàng Anh nhấn mạnh vào việc truyền đạt kiến thức một cách thú vị và hấp dẫn. Anh luôn thúc đẩy sự tò mò và khám phá trong quá trình học tập, giống như Mark Rober trên YouTube đã thúc đẩy sự tò mò của người xem với các video thực tế và thú vị.</p>
+        </div>
+    </div>
+    <div class="review-section">
+        <h2>Đánh giá khóa học</h2>
+        <div class="review-form">
+            <form id="courseReviewForm">
+                <label for="name">Tên của bạn:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" required>
+                <label for="rating">Đánh giá:</label>
+                <select id="rating" name="rating">
+                    <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ - Xuất sắc</option>
+                    <option value="⭐⭐⭐⭐☆">⭐⭐⭐⭐☆ - Tốt</option>
+                    <option value="⭐⭐⭐☆☆">⭐⭐⭐☆☆ - Trung bình</option>
+                    <option value="⭐⭐☆☆☆">⭐⭐☆☆☆ - Kém</option>
+                    <option value="⭐☆☆☆☆">⭐☆☆☆☆ - Rất kém</option>
+                </select>
+                <label for="comment">Nhận xét của bạn:</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
+                <button type="submit">Gửi đánh giá</button>
+            </form>
+        </div>
+        <div class="reviews">
+            <h3>Đánh giá chất lượng </h3>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học rất hữu ích. Tôi đã học nhiều điều mới và có thể áp dụng kiến thức vào thực tế.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐☆</strong>
+                <p>Khóa học tốt. Tôi học được nhiều điều quan trọng và mong muốn tham gia các khóa học khác.</p>
+            </div>
+            <div class="review">
+                <strong>Đánh giá:⭐⭐⭐⭐⭐</strong>
+                <p>Khóa học thú vị và bổ ích. Giảng viên rất giỏi và nhiệt tình hỗ trợ học viên.</p>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/Comments.js"></script>
+
+    <a href="../Home/#technology" class="btn btn-success" style="float: right;">Mua để xem bài học tiếp theo</a>
+</body>
+</html>
+
